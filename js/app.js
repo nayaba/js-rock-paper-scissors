@@ -24,9 +24,9 @@ function getComputerChoice() {
 }
 
 // initialize game state
-function play() {
+function play(event) {
     computerChoice = getComputerChoice()
-
+    playerChoice = event.target.id
     // after updating state, render to html
     render()
 }
@@ -34,11 +34,15 @@ function play() {
 
 // updates our UI/html directly
 function render() {
-    resultDisplayEl.textContent = `Computer chose ${computerChoice} and you chose ${playerChoice}.`
+    resultDisplayEl.textContent = `Computer chose ${computerChoice} and you chose ${playerChoice}. ${msg}`
 }
 
-function test() {
-    console.log('you clicked me')
+function compare() {
+    // compare playerChoice to computerChoice
+    // if playerChoice beats computerChoice
+    // update msg to say "Player wins!"
+    // else update msg to say "Computer wins!"
+    // else if tie, update msg to say "Tie!"
 }
 
 /*--------- Event Listeners ----------------*/
