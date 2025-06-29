@@ -12,13 +12,10 @@ let computerChoice
 const rockBtnEl = document.querySelector('#rock')
 const paperBtnEl = document.querySelector('#paper')
 const scissorsBtnEl = document.querySelector('#scissors')
-
+const resultDisplayEl = document.querySelector('#result-display')
 
 
 /*-------- Functions -----------------------*/
-play()
-
-
 function getComputerChoice() {
     // generate a random number 0-2
     const randomIndex = Math.floor(Math.random() * choice.length)
@@ -28,20 +25,23 @@ function getComputerChoice() {
 
 // initialize game state
 function play() {
-    console.log('computerChoice', computerChoice)
     computerChoice = getComputerChoice()
-    console.log('computerChoice', computerChoice)
 
     // after updating state, render to html
     render()
 }
 
 
-
 // updates our UI/html directly
 function render() {
-
+    resultDisplayEl.textContent = `Computer chose ${computerChoice} and you chose ${playerChoice}.`
 }
 
+function test() {
+    console.log('you clicked me')
+}
 
 /*--------- Event Listeners ----------------*/
+rockBtnEl.addEventListener('click', play)
+paperBtnEl.addEventListener('click', play)
+scissorsBtnEl.addEventListener('click', play)
