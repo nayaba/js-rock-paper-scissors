@@ -28,6 +28,7 @@ function play(event) {
     computerChoice = getComputerChoice()
     playerChoice = event.target.id
     // after updating state, render to html
+    compare()
     render()
 }
 
@@ -38,11 +39,28 @@ function render() {
 }
 
 function compare() {
-    // compare playerChoice to computerChoice
-    // if playerChoice beats computerChoice
-    // update msg to say "Player wins!"
-    // else update msg to say "Computer wins!"
-    // else if tie, update msg to say "Tie!"
+    if (playerChoice === computerChoice) {
+        msg = 'You tied!'
+    } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+        msg = 'You win!'
+    } else if (playerChoice === 'rock' && computerChoice === 'paper') {
+        msg = 'You lose!'
+    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        msg = 'You win!'
+    } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+        msg = 'You lose!'
+    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        msg = 'You win!'
+    } else {
+        msg = 'You lose!'
+    }
+    // else if (playerChoice === 'rock') {
+    //     if (computerChoice === 'paper') {
+    //         msg = 'You Lose!'
+    //     } else if (computerChoice === 'scissors') {
+    //         msg = 'You win!'
+    //     }
+    // }
 }
 
 /*--------- Event Listeners ----------------*/
